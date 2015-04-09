@@ -1,0 +1,18 @@
+说明
+此版本是在CI3.0版本的基础上修改开发出来的
+此版本的框架对CI3.0进行了HMVC扩展 此扩展主要通过 EX_Loader.php文件进行扩展
+
+简要说明如下：
+1.application下为应用目录
+2.common为公共文件夹 其中可以存放公共配置文件，核心文件，帮助文件，hooks, language, libraries等
+3.此修改后的框架支持配置继承类加载继承等
+4.模型，视图，libraries, helper,等支持跨模块调用
+5.若此框架中存在问题开发者可自行修改
+6.修改文件如下：
+1>.index.php 增加COMMONPATH
+2>.修改system/core/Codeigniter.php
+3>.修改了system/core/Common.php
+4>.修改了system/core/Loader.php
+5>.修改了system/core/Config.php
+6>.修改了system/core/Lang.php
+7>.若有其它问题需要交流可以邮件联系qzfzz@163.com
