@@ -251,7 +251,7 @@ switch (ENVIRONMENT)
 	}
 	else
 	{
-		include 'application/common/config/routes.php';
+		include $APP_FOLDER . 'common/config/routes.php';
 				
 		$application_folder = $APP_FOLDER . $route['default_module'];
 		
