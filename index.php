@@ -1,4 +1,6 @@
 <?php
+
+            
 /**
  * CodeIgniter
  *
@@ -214,6 +216,8 @@ switch (ENVIRONMENT)
 		exit(3); // EXIT_CONFIG
 	}
 
+
+            
 	$APP_FOLDER = 'application/';
 /*
  * -------------------------------------------------------------------
@@ -244,9 +248,9 @@ switch (ENVIRONMENT)
 			exit();	
 		}
 		
-		$_SERVER[ 'REQUEST_URI' ] = str_replace( $arrPaths[1] . '/', '', $_SERVER[ 'REQUEST_URI' ] );
-		$_SERVER[ 'PATH_INFO' ] = str_replace( $arrPaths[1] . '/', '', $_SERVER[ 'PATH_INFO' ] );
-		$_SERVER[ 'PHP_SELF' ] = str_replace( $arrPaths[1] . '/', '', $_SERVER[ 'PHP_SELF' ] );
+		$_SERVER[ 'REQUEST_URI' ] = lTrimStr( $arrPaths[1] . '/' , $_SERVER[ 'REQUEST_URI' ] );
+		$_SERVER[ 'PATH_INFO' ] = lTrimStr( $arrPaths[1] . '/', $_SERVER[ 'PATH_INFO' ] );
+		$_SERVER[ 'PHP_SELF' ] = lTrimStr( $arrPaths[1] . '/', $_SERVER[ 'PHP_SELF' ] );
 	
 	}
 	else
@@ -266,7 +270,7 @@ switch (ENVIRONMENT)
 		}
 		
 	}
-		
+
 	// Path to the front controller (this file)
 	define('FCPATH', dirname(__FILE__).'/');
 
@@ -327,6 +331,20 @@ switch (ENVIRONMENT)
 	}
 
 	define('VIEWPATH', $view_folder);
+
+        function lTrimStr( $strNeedle, $strTarget )
+        {
+            if( !$strNeedle || !$strTarget )
+                return $strTarget;
+            $iRet = strpos( $strTarget, $strNeedle );
+            
+            if( $iRet === FALSE )
+            {
+                return $strTarget;
+            }
+            
+            return substr( $strTarget, $iRet + strlen( $strNeedle ) );
+        }
 
 /*
  * --------------------------------------------------------------------
